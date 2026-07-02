@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* تنظیمات تم برای نسخه جدید تیل‌ویند */
+@theme {
+  --color-brand-green: #00d26a;
+  --color-brand-dark: #0b1221;
+  --color-brand-gray: #8892b0;
+  --color-brand-light: #e6f1ff;
+
+  /* تعریف دقیق فونت‌ها مطابق با متغیرهای تولید شده در layout.tsx */
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-vazirmatn: var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+
+  /* انیمیشن‌های کاستوم */
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-text-reveal: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1)
+    forwards;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes textReveal {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* تنظیمات ریشه‌ای */
+:root {
+  --color-brand-green: #00d26a;
+  --color-brand-dark: #0b1221;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* اعمال رنگ پس‌زمینه و رنگ متن */
+  background-color: var(--color-brand-dark);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی مزاحم */
+}
+
+/* کلاس کمکی برای مخفی کردن اسکرول‌بار (برای زیبایی لیست‌ها) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* کلاس‌های کاربردی برای افکت‌های سه بعدی */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
